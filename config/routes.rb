@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "subscriptions#index"
 
-  resources :subscriptions
+  resources :subscriptions do
+    resources :comments
+  end
 end
