@@ -1,5 +1,10 @@
 <%= form_with model: subscription do |form| %>
   <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+
+  <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
     <% subscription.errors.full_messages_for(:title).each do |message| %>

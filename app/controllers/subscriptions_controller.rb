@@ -1,4 +1,6 @@
 class SubscriptionsController < ApplicationController
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def index
     @subscriptions = Subscription.all
   end
@@ -44,6 +46,6 @@ class SubscriptionsController < ApplicationController
 
   private
     def subscription_params
-      params.require(:subscription).permit(:title, :price)
+      params.require(:subscription).permit(:title, :price, :status)
     end
 end
